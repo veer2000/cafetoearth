@@ -1,0 +1,166 @@
+{
+  "identity": {
+    "name": "E1",
+    "persona": "The Anti-AI Designer",
+    "philosophy": "Fusion over Imitation. Emotion First. Asymmetry over Symmetry."
+  },
+  "project_context": {
+    "app_name": "Contour Cafe",
+    "type": "3D Interactive Experience",
+    "theme": "Organic Tech (Contour Lines + Cafe Warmth)",
+    "target_audience": "Coffee lovers, Tech enthusiasts, Design-conscious customers",
+    "user_constraints": [
+      "Must use Standard Three.js (NO React-Three-Fiber)",
+      "Mobile/Tablet friendly navigation",
+      "Export functionality for WordPress",
+      "Mix of warm and cool tones"
+    ]
+  },
+  "design_system": {
+    "typography": {
+      "headings": {
+        "family": "Space Grotesk",
+        "weights": ["Bold", "Medium"],
+        "usage": "Hero titles, Section headers, 3D Labels",
+        "style": "tracking-tight"
+      },
+      "body": {
+        "family": "Manrope",
+        "weights": ["Regular", "Light"],
+        "usage": "Paragraphs, Menu descriptions, UI elements",
+        "style": "leading-relaxed"
+      }
+    },
+    "colors": {
+      "palette_name": "Espresso Topography",
+      "mode": "Dark",
+      "primary": {
+        "name": "Golden Latte",
+        "hex": "#E9C46A",
+        "usage": "Highlights, Buttons, Active States"
+      },
+      "secondary": {
+        "name": "Cyber Teal",
+        "hex": "#2A9D8F",
+        "usage": "Contour Lines, Secondary Actions, Links"
+      },
+      "background": {
+        "base": "#1A1A1D",
+        "surface": "#252529",
+        "overlay": "rgba(26, 26, 29, 0.8)"
+      },
+      "text": {
+        "primary": "#EDEDED",
+        "secondary": "#A1A1AA",
+        "muted": "#52525B"
+      },
+      "accents": {
+        "warm": "#F4A261",
+        "cool": "#264653"
+      }
+    },
+    "gradients": {
+      "contour_glow": "linear-gradient(135deg, rgba(42,157,143,0.2) 0%, rgba(233,196,106,0.1) 100%)"
+    },
+    "spacing": {
+      "base_scale": 4,
+      "container_padding": "p-6 md:p-12",
+      "section_gap": "gap-12 md:gap-24"
+    },
+    "radius": {
+      "default": "rounded-none",
+      "buttons": "rounded-full",
+      "cards": "rounded-lg"
+    },
+    "visual_enhancers": {
+      "glassmorphism": "backdrop-blur-xl bg-black/40 border border-white/10",
+      "contour_overlay": "SVG background pattern simulating topographic lines",
+      "shadows": "shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+    }
+  },
+  "layout_strategy": {
+    "global": {
+      "root_layout": "Full-screen 3D Canvas (z-0) + Floating UI Layer (z-10)",
+      "navigation": "Floating Dock or Hamburger Menu (Top-Right or Bottom-Center)",
+      "responsive": "Mobile-first. 3D scene creates 'room' feel on desktop, simplified 'object' view on mobile."
+    },
+    "pages": {
+      "Home": "Hero 3D interactive scene. No scroll, just exploration.",
+      "Menu": "Glass overlay sliding from right. Grid layout for items.",
+      "About": "Split screen: 3D view (blurred) + Text content.",
+      "Contact": "Minimalist form floating over the 3D floor.",
+      "Download": "Technical page. 'Export to WordPress' card with instructions."
+    }
+  },
+  "components_library": {
+    "buttons": {
+      "primary": "bg-[#E9C46A] text-[#1A1A1D] hover:bg-[#F4A261] font-bold rounded-full px-8 py-3 transition-transform hover:scale-105",
+      "secondary": "border border-[#2A9D8F] text-[#2A9D8F] hover:bg-[#2A9D8F]/10 rounded-full px-6 py-2",
+      "ghost": "text-white/60 hover:text-[#E9C46A] transition-colors"
+    },
+    "cards": {
+      "glass": "backdrop-blur-md bg-[#1A1A1D]/60 border border-white/5 shadow-2xl rounded-xl p-6",
+      "solid": "bg-[#252529] border border-[#2A9D8F]/20 rounded-lg p-6"
+    },
+    "typography": {
+      "h1": "font-space-grotesk text-5xl md:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#E9C46A] to-[#F4A261]",
+      "h2": "font-space-grotesk text-3xl md:text-4xl font-bold text-white",
+      "p": "font-manrope text-base md:text-lg text-gray-300 leading-relaxed"
+    }
+  },
+  "three_js_guidelines": {
+    "core_principles": [
+      "USE 'three' package directly. DO NOT install 'react-three-fiber' or '@react-three/drei'.",
+      "Initialize Scene, Camera, Renderer inside a useEffect hook.",
+      "Handle window resize manually.",
+      "Clean up resources (dispose geometries/materials) in useEffect cleanup return.",
+      "Use 'requestAnimationFrame' for the render loop."
+    ],
+    "scene_setup": {
+      "camera": "PerspectiveCamera. FOV 75. Positioned to show the room depth.",
+      "lighting": "AmbientLight (warm) + PointLights (cool/cyan) to create the 'Contour' mood.",
+      "objects": "Simple geometric shapes representing tables/chairs if models unavailable. Use 'WireframeGeometry' or custom ShaderMaterial to achieve the contour line look.",
+      "interaction": "Raycaster for click events. On click -> Open Info Popup (HTML Overlay)."
+    },
+    "performance": [
+      "Limit polygon count.",
+      "Use shared materials.",
+      "Disable anti-aliasing on mobile if needed for fps."
+    ]
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "background",
+        "url": "https://images.unsplash.com/photo-1758980960366-d344cfddd004",
+        "description": "Cafe interior backup background"
+      },
+      {
+        "category": "menu_item",
+        "url": "https://images.unsplash.com/photo-1676840734670-902483e1990a",
+        "description": "Coffee and Pastries"
+      },
+      {
+        "category": "barista",
+        "url": "https://images.unsplash.com/photo-1770565356338-7bf46fabe8c5",
+        "description": "Barista making coffee"
+      }
+    ],
+    "icons": "Lucide React (Menu, X, Download, Coffee, User, MapPin)"
+  },
+  "instructions_to_main_agent": [
+    "1. INSTALLATION: Run 'yarn add three' immediately.",
+    "2. SETUP: Create 'components/ThreeScene.js' for the 3D logic.",
+    "3. SHADCN: Use Shadcn UI for the 'Menu' (Cards), 'Contact' (Form), and 'Dialog' (Popups). Customize them to match the Dark/Teal theme.",
+    "4. ROUTING: Use React Router. The 3D background can stay mounted or re-mount per page. For simplicity, keep it as a background component in the Layout.",
+    "5. EXPORT: The 'Download' page should explain that the 'build' folder is the exportable asset.",
+    "6. CONTOUR THEME: Use CSS background patterns (SVG) for the 2D pages to maintain the theme."
+  ],
+  "universal_guidelines": [
+    "Do not use gradients for dark colors.",
+    "Ensure text contrast > 4.5:1.",
+    "Add 'data-testid' to all interactive elements.",
+    "Use 'sonner' for notifications.",
+    "Avoid 'transition: all'."
+  ]
+}
