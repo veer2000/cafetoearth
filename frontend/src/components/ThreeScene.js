@@ -36,7 +36,7 @@ const ThreeScene = ({ onObjectClick }) => {
     const renderer = new THREE.WebGLRenderer({ antialias: window.innerWidth > 768 });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    mountRef.current.appendChild(renderer.domElement);
+    currentMount.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
     // Lighting
