@@ -39,21 +39,27 @@ const ThreeScene = ({ onObjectClick }) => {
     currentMount.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xf4a261, 0.4);
+    // Lighting - Enhanced for better visibility
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
-    const pointLight1 = new THREE.PointLight(0x2a9d8f, 1, 20);
+    const pointLight1 = new THREE.PointLight(0x2a9d8f, 2, 25);
     pointLight1.position.set(-5, 5, 5);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0xe9c46a, 0.8, 20);
+    const pointLight2 = new THREE.PointLight(0xe9c46a, 1.5, 25);
     pointLight2.position.set(5, 4, -3);
     scene.add(pointLight2);
 
-    const pointLight3 = new THREE.PointLight(0x2a9d8f, 0.6, 15);
+    const pointLight3 = new THREE.PointLight(0x2a9d8f, 1.2, 20);
     pointLight3.position.set(0, 6, 0);
     scene.add(pointLight3);
+
+    const spotLight = new THREE.SpotLight(0xffffff, 1);
+    spotLight.position.set(0, 10, 0);
+    spotLight.angle = Math.PI / 4;
+    spotLight.penumbra = 0.5;
+    scene.add(spotLight);
 
     // Floor with contour lines
     const floorGeometry = new THREE.PlaneGeometry(20, 20, 40, 40);
