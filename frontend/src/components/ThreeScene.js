@@ -184,20 +184,20 @@ const ThreeScene = ({ onObjectClick }) => {
       clickableObjects.push(tableTop);
     });
 
-    // Floating decorative elements (contour-inspired)
-    for (let i = 0; i < 15; i++) {
-      const size = Math.random() * 0.3 + 0.1;
-      const ringGeometry = new THREE.TorusGeometry(size, size * 0.1, 8, 16);
+    // Floating decorative elements (contour-inspired) - Enhanced visibility
+    for (let i = 0; i < 20; i++) {
+      const size = Math.random() * 0.3 + 0.15;
+      const ringGeometry = new THREE.TorusGeometry(size, size * 0.08, 8, 16);
       const ringMaterial = new THREE.MeshBasicMaterial({ 
         color: i % 2 === 0 ? 0x2a9d8f : 0xe9c46a,
         transparent: true,
-        opacity: 0.3,
+        opacity: 0.5,
         wireframe: true
       });
       const ring = new THREE.Mesh(ringGeometry, ringMaterial);
       ring.position.set(
         (Math.random() - 0.5) * 15,
-        Math.random() * 5 + 1,
+        Math.random() * 6 + 0.5,
         (Math.random() - 0.5) * 15
       );
       ring.rotation.set(
