@@ -124,7 +124,13 @@ const ThreeScene = ({ onObjectClick }) => {
     // Coffee Machine
     const machineGroup = new THREE.Group();
     const machineGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.5);
-    const machineMaterial = new THREE.MeshStandardMaterial({ color: 0xe9c46a });
+    const machineMaterial = new THREE.MeshStandardMaterial({ 
+      color: 0xe9c46a,
+      emissive: 0xe9c46a,
+      emissiveIntensity: 0.3,
+      metalness: 0.5,
+      roughness: 0.3
+    });
     const machine = new THREE.Mesh(machineGeometry, machineMaterial);
     machine.position.set(-1, 1.6, -3);
     
