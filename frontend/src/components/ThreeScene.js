@@ -157,7 +157,12 @@ const ThreeScene = ({ onObjectClick }) => {
     tablePositions.forEach((pos, index) => {
       const tableGroup = new THREE.Group();
       const tableTopGeometry = new THREE.CylinderGeometry(0.8, 0.8, 0.1, 8);
-      const tableMaterial = new THREE.MeshStandardMaterial({ color: 0xf4a261 });
+      const tableMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0xf4a261,
+        emissive: 0xf4a261,
+        emissiveIntensity: 0.15,
+        roughness: 0.5
+      });
       const tableTop = new THREE.Mesh(tableTopGeometry, tableMaterial);
       tableTop.position.set(pos[0], pos[1], pos[2]);
 
