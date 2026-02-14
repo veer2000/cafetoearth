@@ -17,8 +17,8 @@ const ThreeScene = ({ onObjectClick }) => {
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a1a1d);
-    scene.fog = new THREE.Fog(0x1a1a1d, 10, 50);
+    scene.background = new THREE.Color(0x0f0f12);
+    scene.fog = new THREE.Fog(0x0f0f12, 15, 50);
     sceneRef.current = scene;
 
     // Camera setup
