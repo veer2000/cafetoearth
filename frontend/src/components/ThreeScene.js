@@ -12,6 +12,8 @@ const ThreeScene = ({ onObjectClick }) => {
 
   useEffect(() => {
     if (!mountRef.current) return;
+    
+    const currentMount = mountRef.current;
 
     // Scene setup
     const scene = new THREE.Scene();
