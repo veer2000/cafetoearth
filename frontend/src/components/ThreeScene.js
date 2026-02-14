@@ -87,7 +87,7 @@ const ThreeScene = ({ onObjectClick }) => {
     const contourMaterial = new THREE.LineBasicMaterial({ 
       color: 0x2a9d8f, 
       transparent: true, 
-      opacity: 0.3 
+      opacity: 0.6 
     });
     const contourLines = new THREE.LineSegments(contourGeometry, contourMaterial);
     contourLines.rotation.x = -Math.PI / 2;
@@ -102,7 +102,9 @@ const ThreeScene = ({ onObjectClick }) => {
     const counterGeometry = new THREE.BoxGeometry(4, 1.2, 1);
     const counterMaterial = new THREE.MeshStandardMaterial({ 
       color: 0x264653, 
-      roughness: 0.6 
+      roughness: 0.6,
+      emissive: 0x2a9d8f,
+      emissiveIntensity: 0.2
     });
     const counter = new THREE.Mesh(counterGeometry, counterMaterial);
     counter.position.set(0, 0.6, -3);
